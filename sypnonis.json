@@ -1,0 +1,13 @@
+{
+  "guest": {
+    "name": "Olivier"
+  },
+  "drinks": [
+    "Bier",
+    "Rode wijn",
+    "Witte wijn",
+    "Rum",
+    "Wodka",
+    "Cola"
+  ]
+}

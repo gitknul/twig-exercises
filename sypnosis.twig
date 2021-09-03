@@ -1,0 +1,41 @@
+{% macro header1(text, color) %}
+    <h1 style="color: {{ (color is defined and color != '') ? color : 'black' }}">{{ text }}</h1>
+{% endmacro header1 %}
+
+{% set number_of_drinks = drinks|length %}
+{% set html_string = '<p>oh leuk zeg</p>' %}
+{% set drinks = [] %}
+
+{{ include('header.twig') }}
+
+<section>
+    <p>
+        Hello, <span style="color: green">{{ guest.name }}</span>.
+    </p>
+
+    {{ _self.header1('Drinks', 'Green') }}
+    {% if drinks|length > 0 %}
+        <ul>
+            {% for drink in drinks %}
+                <li>{{ drink }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>We don't have any drinks. We think our fridge is down.</p>
+    {% endif %}
+
+    {#<h1>Filters:</h1>#}
+    {#<p>#}
+    {#    {% apply lower %}#}
+    {#    Huh, waar zijn mijn hoofdletters? ABCDEFG#}
+    {#    {% endapply %}#}
+    {#</p>#}
+
+    {{ _self.header1('Specials', 'Red') }}
+
+    <h1>Context:</h1>
+    <code>
+        {{ _context|json_encode() }}
+    </code>
+</section>
+
